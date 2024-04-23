@@ -1,0 +1,120 @@
+
+{% load static %}
+{% block content %}
+
+<html>
+    <head>
+        <title>{{ object.name }}'s Resume</title>
+        <link rel="stylesheet" type="text/css" href="{{ MEDIA_URL }}css/resume.css" />
+    </head>
+    <body>
+    <div class="container">
+        <div class="row my-5 d-flex justify-content-center" id="hidediv">
+            <h2 style="color: white">Your resume looks like this now</h2>
+        </div>
+        
+        <div>
+            <div class="col-12">
+                <div class="row div_des">
+                    <div class="col-sm-6">
+                    
+                        <h3>{{ object.name }}</h3>
+                        <h5>{{ object.dob }}</h5>
+                        <h5>{{ object.email_id }}</h5>
+                        <h5>{{ object.mobile_no }}</h5>
+                        <h5>{{ object.address }}</h5>
+        <h1>{{ object.name }}</h1>
+        <p id="bio_left">
+            {{ object.mobile_no }}<br />
+            <a href="mailto:{{ person.email }}">{{ object.email_id }}</a>
+        </p>
+        <p id="bio_right">
+            {{ object.address }}
+        </p>
+        <div class="row">
+                    <div class="col-sm-12">
+                        <h5 class="my-2">
+                            Objective
+                        </h5>
+                        <p class="text-justify">{{ object.objective }}</p>
+                    </div>
+                </div>
+                <hr>
+                <div class="row">
+                    <div class="col-sm-12">
+                        <h5 class="my-2">
+                            Brief OverView
+                        </h5>
+                        <p class="text-justify">{{ object.brief_overview }}</p>
+                    </div>
+                </div>
+                <hr>
+                <div class="row">
+                    <div class="col-sm-12">
+                        <h5 class="my-2">
+                            Education
+                        </h5>
+                        <div class="w-100">
+                            <table class="table table-striped">
+                          <thead>
+                            <tr>
+                              <th scope="col">#</th>
+                              <th scope="col">10th</th>
+                              <th scope="col">12th</th>
+                              <th scope="col">Graduation</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              <th scope="row">1</th>
+                              <td>{{ object.tenth_marks }}</td>
+                              <td>{{ object.twe_marks }}</td>
+                              <td>{{ object.gradu_agg }}</td>
+                            </tr>
+                          </tbody>
+                        </table>
+                        </div>
+                    </div>
+                </div>
+                <hr>
+                <div class="row">
+                    <div class="col-sm-12">
+                        <h5 class="my-2">
+                            Technical Certifications
+                        </h5>
+                        <p class="text-justify">{{ object.tech_certi }}</p>
+                    </div>
+                </div>
+                <hr>
+                <div class="row">
+                    <div class="col-sm-12">
+                        <h5 class="my-2">
+                            Extra Curricular Activities
+                        </h5>
+                        <p class="text-justify">{{ object.extra_curri }}</p>
+                    </div>
+                </div>
+                <hr>
+                <div class="row">
+                    <div class="col-sm-12">
+                        <h5 class="my-2">
+                            Projects Made
+                        </h5>
+                        <p class="text-justify">{{ object.project }}</p>
+                    </div>
+                </div>
+                <hr>
+            </div>
+        </div>
+      
+        <div class="row d-flex justify-content-center my-5">
+            <a href={% url 'pdf' %} class="btn btn-block btn-outline-success font-weight-bold">Download as PDF</a>
+        </div>
+        <div class="row d-flex justify-content-center my-5">
+            <a href='/resumo/template/'>next</a>
+        </div>
+    </div>
+    </body>
+     
+</html>
+{% endblock %}

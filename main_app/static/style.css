@@ -1,0 +1,40 @@
+#home {
+    /*background-image: url("images/third_image.jpg");*/
+    background-image: linear-gradient(to top, #2C5364, #203A43, #0F2027);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.div_des {
+    border-bottom: 2px solid black;
+}
+.cell_col {
+    color: white;
+}
+
+.bl{
+  color: cyan;
+}
+.bl:hover{
+  color: dodgerblue;
+}
+.re{
+  color: orangered;
+}
+.re:hover{
+  color: firebrick;
+}
+
+.mycard:hover{
+	transform: scale(1.1);
+}
+.mycard{
+	transition: 1s;
+	box-shadow: 3px 3px 3px black;
+}
+
+.mycard a{
+	box-shadow: 2px 2px 2px black;
+
+}

@@ -1,0 +1,95 @@
+{% load static %}
+<html>
+<head>
+    <meta charset="ISO-8859-1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>{% block title %}Resume Builder{% endblock %}</title>
+    <link href="{% static 'vender/bs/css/bootstrap.min.css'%}" rel="stylesheet" type="text/css" />
+    <link href="{% static 'vender/fa/css/font-awesome.min.css'%}" rel="stylesheet" type="text/css" />
+    <link href="{% static 'style.css'%}" rel="stylesheet" type="text/css" />
+    <script src="{% static 'vender/jquery-3.3.1.min.js' %}"></script>
+    <script src="{% static 'vender/html2canvas.min.js' %}"></script>
+    <script src="{% static 'vender/jspdf.debug.js' %}"></script>
+    <script src="{% static 'vender/jspdf.min.js'%}"></script>
+    <script src="{% static 'vender/popper.min.js'%}"></script>
+    <script src="{% static 'vender/bs/js/bootstrap.min.js'%}"></script>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #2C5364; font-weight: bold">
+  <a class="navbar-brand" href="#">ResumeIt!</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+            <a class="nav-link" href={% url 'home' %}>Home</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href={% url 'build' %}>Build Resume</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href={% url 'about' %}>About</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href={% url 'contact' %}>Contact</a>
+        </li>
+    </ul>
+      <ul class="navbar-nav ml-auto">
+          {% if user.is_authenticated %}
+          <li class="nav-item">
+            <h5 class="nav-link">Hello, {{ user.username }}</h5>
+          </li>
+          <li class="nav-item">
+            <a href="/resumo/list?user={{ user.id }}" class="nav-link">My Resumes</a>
+          </li>
+          <li class="nav-item">
+              <a href="/accounts/logout/?next=/resumo/" class="nav-link">Logout</a>
+          </li>
+          {% else %}
+              <li class="nav-item">
+                <a href="/accounts/login/?next=/resumo/" class="nav-link">Login</a>
+              </li>
+              <li class="nav-item">
+                <a href="/accounts/register/?next=/resumo/" class="nav-link">Register</a>
+              </li>
+          {% endif %}
+          {% if user.is_superuser %}
+            <li class="nav-item">
+                <a class="nav-link" href="/admin">Admin</a>
+            </li>
+			{% endif %}
+      </ul>
+  </div>
+</nav>
+
+
+<div>
+    <section id="home" style="width: 100%; min-height: 100vh;" class="d-flex align-items-center">
+    {% block content %}
+    {% endblock %}
+    </section>
+</div>
+
+<div class="container-fluid" style="background-color: #0F2027">
+  <div class="row">
+    <div class="col-md-8">
+      <h3 class="text-white my-3">Resume Builder</h3>
+    </div>
+    <div class="col-md-4 my-3 align-items-center">
+      <div>
+        <p class="my-2 text-white text-center">Follow us on various platform</p>
+      </div>
+      <div class="d-flex justify-content-center">
+        <a href="#"><i class="fa fa-facebook-official fa-2x mx-2 bl"></i></a>
+        <a href="#"><i class="fa fa-instagram fa-2x mx-2 re"></i></a>
+        <a href="#"><i class="fa fa-youtube fa-2x mx-2 re"></i></a>
+        <a href="#"><i class="fa fa-twitter fa-2x mx-2 bl"></i></a>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

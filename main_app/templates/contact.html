@@ -1,0 +1,24 @@
+{% extends 'base.html' %} {% load static %}
+{% block content %}
+<div class="container" style="color: white; min-height: 100vh;">
+    <div class="w-100 my-3 d-flex justify-content-center border-bottom">
+            <h1>Contact Us</h1>
+    </div>
+    <div class="row text-justify">
+	<div class="col-md-8">
+	<div class="embed-responsive embed-responsive-16by9">
+	<iframe class="embed-responsive-item"  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d58691.144805293276!2d79.90296286925799!3d23.16302542965025!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3981ae0c48b12131%3A0x5d1609cab59eb9ae!2sShadiparty.com+Event+Management+Company!5e0!3m2!1sen!2sin!4v1563246773874!5m2!1sen!2sin"  frameborder="0" style="border:0" allowfullscreen></iframe>
+	</div>	
+	</div>
+	<div class="col-md-4 mybox p-3">
+	<form>
+	<input class="form-control" type="text" name="uname" placeholder="Name"><br>
+	<input class="form-control" type="email" name="email" placeholder="EMail"><br>
+	<input class="form-control" type="tel" name="phone_no" placeholder="Phone No"><br>
+	<textarea class="form-control" placeholder="MSG"></textarea><br>
+	<button class="btn btn-dark btn-block" type="submit">Submit</button>
+	</form>
+	</div>
+</div>
+</div>
+{% endblock %}

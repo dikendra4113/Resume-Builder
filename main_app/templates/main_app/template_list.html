@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1 class="mybox text-center p-3">Templates</h1>
+<hr>
+<div class="row mybox2 text-center p-5">
+{% for n1 in template_list %}
+<div class="col-sm-4">
+<div class="card mycard">
+    <img class="card-img-top img-fluid" src="/media/{{n1.image}}">
+    <div class="card-body">
+        <h4 class="card-title">{{n1.tname}}</h4>
+		<a class="btn btn-primary" href='/resumo/template/{{n1.id}}'>Read More</a>
+    </div>
+</div>
+</div>
+{% endfor %}
+</div>
+{% endblock %}

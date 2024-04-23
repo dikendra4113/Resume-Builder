@@ -1,0 +1,29 @@
+{% extends 'base.html' %} {% load static %}
+
+{% block content %}
+<div class="container" style="min-height: 100vh;">
+    <div class="w-100 my-3 d-flex justify-content-center">
+        <h1 class="text-white">All resumes made till now</h1>
+    </div>
+    <table class="table table-striped" style="color:white;">
+      <thead>
+        <tr>
+          <th scope="col">S.N.</th>
+          <th scope="col">Name</th>
+          <th scope="col">Email</th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+      {% for stu in object_list %}
+        <tr>
+          <th scope="row">1</th>
+          <td>{{ stu.name }}</td>
+          <td>{{ stu.email_id }}</td>
+          <td><a href="/resumo/build/{{ stu.id }}">View full details</a></td>
+        </tr>
+      {% endfor %}
+      </tbody>
+    </table>
+</div>
+{% endblock %}

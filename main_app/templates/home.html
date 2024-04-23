@@ -1,0 +1,63 @@
+{% extends 'base.html' %}{% load static %}
+{% block content %}
+
+{% if request.GET.msg %}
+<div class="alert alert-success alert-dismissible fade show" role="alert">
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+        <span class="sr-only">Close</span>
+    </button>
+    <strong>Resumo!</strong> {{ request.GET.msg }}.
+</div>
+{% endif %}
+
+
+{#<section id="home" style="width: 100%; min-height: 100vh;" class="d-flex align-items-center">#}
+<div class="container  bg-transparent">
+    <div class="row  bg-transparent">
+        <div class="col-md-4  bg-transparent d-flex align-items-center">
+            <div class="w-100">
+                <div class="cell_col">
+                    <div class="text-center">
+                        <i class="fa fa-5x fa-keyboard-o my-3" aria-hidden="true"></i>
+                    </div>
+                    <p class="text-center" style="font-size: 2rem">
+                        Login and enter all the required details
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4  bg-transparent d-flex align-items-center">
+            <div class="w-100">
+                <div class="cell_col">
+                    <div class="text-center">
+                        <i class="fa fa-5x fa-filter my-3" aria-hidden="true"></i>
+                    </div>
+                    <p class="text-center" style="font-size: 2rem">
+                    <a  href="template/"></>Select your favorite template</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4  bg-transparent d-flex align-items-center">
+            <div class="w-100">
+                <div class="cell_col">
+                    <div class="text-center">
+                        <i class="fa fa-5x fa-cloud-download my-3" aria-hidden="true"></i>
+                    </div>
+                    <p class="text-center" style="font-size: 2rem">
+                        Download the generated resume
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row my-5">
+        <div class="col-sm-4 offset-4 ">
+            <a class="btn btn-block btn-outline-success" role="button" aria-pressed="true" href={% url 'build' %}>Lets Build</a>
+        </div>
+    </div>
+</div>
+{#</section>#}
+
+{% endblock %}
